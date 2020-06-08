@@ -1,0 +1,41 @@
+0. Install the tool virtulalenv
+
+	pip install --user virtualenv
+
+
+1. First you need to create a virtual environment for python on some location.
+	$ virtualenv myenv
+	
+	where myenv can be replaced with the name you want for your virtual environment. The virtual environment can be found in the myenv folder. For Python >= 3.3, you can create a virtual environment with:
+
+	$ python -m venv myenv	
+	
+	After you have created your virtual environment, you can activate the virtual environment with:
+
+	$ source myenv/bin/activate
+	
+	To deactivate the virtual environment, you can run deactivate. To delete the virtual environment you just need to remove the folder with the virtual environment (e.g. rm -r myenv).
+
+	In this virtual environment you can do all sort for experiments and tweaks. These wont affect your main environment.
+	
+2. Insatll jupyter in that virtual environment or you can also use the global one.
+
+
+3. Jupyter will not read the modules and libraries that you installed in your virtual environment; so connect them by adding the virtual environment to jupyter.
+
+	Jupyter Notebook makes sure that the IPython kernel is available, but you have to manually add a kernel with a different version of Python or a virtual environment. First, you need to activate your virtual environment. Next, install ipykernel which provides the IPython kernel for Jupyter:
+
+	$ pip install --user ipykernel
+
+	Next you can add your virtual environment to Jupyter by typing:
+
+	$ python -m ipykernel install --user --name=myenv
+	
+	here myenv is the environment name you want to send to jupyter for setting up the kernel.
+	
+	Finally you can see your virtual environment in kernel selection in jupyter. Chose that to use all the libraries.
+
+3a. After you deleted your virtual environment, by may be deleting the folder, you’ll want to remove it also from Jupyter. Let’s first see which kernels are available. You can list them with:
+
+	$ jupyter kernelspec list
+
